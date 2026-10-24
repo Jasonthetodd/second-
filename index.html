@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>شكون زوجك المستقبلي؟</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500;800;900&display=swap">
+<style>
+:root{
+  --bg:#f6e9ff; --bg2:#ffe3ec; --card:#ffffff; --ink:#2a0f3d; --muted:#7a5d93;
+  --pink:#ff4f7b; --gold:#ffc93c; --violet:#7a4dff; --line:#2a0f3d;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#170a26; --bg2:#2a0e33; --card:#25123a; --ink:#fbefff; --muted:#bda2d6; --line:#fbefff;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#170a26; --bg2:#2a0e33; --card:#25123a; --ink:#fbefff; --muted:#bda2d6; --line:#fbefff;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{
+  margin:0;height:100%;overflow:hidden;
+  font-family:"Tajawal","Segoe UI",Tahoma,system-ui,sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+  background-image:radial-gradient(circle at 15% 10%,var(--bg2),transparent 55%),radial-gradient(circle at 90% 95%,var(--bg2),transparent 50%);
+  display:grid;place-items:center;
+}
+.card{
+  width:min(92vw,440px);
+  background:var(--card);
+  border:3px solid var(--line);
+  border-radius:28px;
+  box-shadow:8px 8px 0 var(--line);
+  padding:30px 22px 26px;
+  text-align:center;
+  position:relative;
+}
+.badge{
+  position:absolute;top:-22px;right:50%;transform:translateX(50%) rotate(-4deg);
+  background:var(--gold);color:#2a0f3d;border:3px solid var(--line);
+  border-radius:999px;padding:4px 18px;font-weight:800;font-size:.95rem;white-space:nowrap;
+}
+h1{
+  margin:14px 0 6px;font-size:clamp(1.7rem,7.2vw,2.3rem);line-height:1.35;font-weight:900;
+}
+.sub{margin:0 0 26px;color:var(--muted);font-weight:500;font-size:1rem}
+.choices{display:flex;gap:14px}
+.slot{flex:1;height:60px;position:relative}
+.btn{
+  font:inherit;font-weight:800;font-size:1.25rem;
+  width:100%;height:60px;cursor:pointer;
+  border:3px solid var(--line);border-radius:18px;
+  box-shadow:4px 4px 0 var(--line);
+  color:#2a0f3d;touch-action:none;
+  transition:transform .12s ease,box-shadow .12s ease;
+}
+.btn:focus-visible{outline:4px solid var(--violet);outline-offset:3px}
+#shamsu{background:var(--pink);color:#fff}
+#shamsu:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--line)}
+#anas{
+  background:var(--gold);
+  position:relative;z-index:5;
+  transition:transform .38s cubic-bezier(.2,.9,.25,1.25);
+}
+.hint{min-height:1.6em;margin:22px 0 0;font-weight:800;color:var(--violet)}
+.hint.pop{animation:pop .3s ease}
+@keyframes pop{0%{transform:scale(.8);opacity:0}100%{transform:scale(1);opacity:1}}
+
+#win{
+  position:fixed;inset:0;z-index:20;display:none;place-items:center;
+  background:rgba(23,10,38,.72);padding:24px;
+}
+#win.show{display:grid}
+.sign{
+  width:min(92vw,420px);text-align:center;
+  background:var(--gold);color:#2a0f3d;
+  border:3px solid #2a0f3d;border-radius:28px;box-shadow:8px 8px 0 #2a0f3d;
+  padding:34px 20px 26px;transform:rotate(-2.5deg);
+  animation:drop .55s cubic-bezier(.2,1.2,.3,1) both;
+}
+@keyframes drop{0%{transform:translateY(-120%) rotate(8deg);opacity:0}100%{transform:rotate(-2.5deg);opacity:1}}
+.sign .big{font-size:clamp(2.2rem,11vw,3.2rem);font-weight:900;line-height:1.2;margin:0}
+.sign .emo{font-size:2.6rem;margin-bottom:6px}
+.again{
+  margin-top:22px;font:inherit;font-weight:800;cursor:pointer;
+  background:#fff;color:#2a0f3d;border:3px solid #2a0f3d;border-radius:14px;
+  padding:8px 22px;box-shadow:3px 3px 0 #2a0f3d;
+}
+.again:focus-visible{outline:4px solid var(--violet);outline-offset:3px}
+.bit{
+  position:fixed;top:-40px;z-index:30;font-size:1.6rem;pointer-events:none;
+  animation:fall linear forwards;
+}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
+@media (prefers-reduced-motion: reduce){
+  #anas{transition:none}
+  .sign{animation:none}
+  .bit{display:none}
+}
+</style>
+</head>
+<body>
+<main class="card">
+  <div class="badge">سؤال مهم 💍</div>
+  <h1>شكون تخيري يكون زوجك المستقبلي ؟</h1>
+  <p class="sub">اختاري بعناية…</p>
+  <div class="choices">
+    <div class="slot"><button class="btn" id="shamsu" type="button">شمسو</button></div>
+    <div class="slot"><button class="btn" id="anas" type="button">أنس</button></div>
+  </div>
+  <p class="hint" id="hint" aria-live="polite"></p>
+</main>
+
+<div id="win" role="dialog" aria-modal="true" aria-label="النتيجة">
+  <div class="sign">
+    <div class="emo">🎉</div>
+    <p class="big">شطورة سيرين</p>
+    <button class="again" id="again" type="button">إعادة</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var anas=document.getElementById('anas');
+  var slot=anas.parentElement;
+  var shamsu=document.getElementById('shamsu');
+  var hint=document.getElementById('hint');
+  var win=document.getElementById('win');
+  var msgs=['ما تقدريش 😏','حاولي مرة أخرى 😂','قلتلك مستحيل','عيّيتي؟','أنس ما يتمسكش 🏃','كمّلي، نحبك تحاولي 😅','شمسو راه يستنى فيك 👀'];
+  var n=0,lastT=0;
+
+  function dodge(e){
+    if(e&&e.cancelable)e.preventDefault();
+    var now=Date.now();
+    if(now-lastT<160)return;
+    lastT=now;
+    var vw=window.innerWidth,vh=window.innerHeight;
+    var sb=slot.getBoundingClientRect();
+    var cur=anas.getBoundingClientRect();
+    var sh=shamsu.getBoundingClientRect();
+    var bw=sb.width,bh=sb.height,m=14,best=null,i,x,y,far,hit;
+    for(i=0;i<40;i++){
+      x=m+Math.random()*Math.max(1,vw-bw-2*m);
+      y=m+Math.random()*Math.max(1,vh-bh-2*m);
+      far=Math.hypot(x-cur.left,y-cur.top)>150;
+      hit=x<sh.right+16&&x+bw>sh.left-16&&y<sh.bottom+16&&y+bh>sh.top-16;
+      if(far&&!hit){best={x:x,y:y};break}
+      if(!best)best={x:x,y:y};
+    }
+    var rot=Math.round(Math.random()*20-10);
+    anas.style.transform='translate('+(best.x-sb.left)+'px,'+(best.y-sb.top)+'px) rotate('+rot+'deg)';
+    hint.textContent=msgs[n%msgs.length];n++;
+    hint.classList.remove('pop');void hint.offsetWidth;hint.classList.add('pop');
+  }
+
+  ['pointerenter','pointerdown','click','focus'].forEach(function(t){anas.addEventListener(t,dodge)});
+  anas.addEventListener('touchstart',dodge,{passive:false});
+
+  function confetti(){
+    var em=['💖','✨','🎉','💜','🌸'],i,s;
+    for(i=0;i<36;i++){
+      s=document.createElement('span');
+      s.className='bit';
+      s.textContent=em[i%em.length];
+      s.style.left=Math.random()*100+'vw';
+      s.style.animationDuration=(2.2+Math.random()*2.2)+'s';
+      s.style.animationDelay=(Math.random()*.8)+'s';
+      document.body.appendChild(s);
+      setTimeout(function(el){el.remove()}.bind(null,s),5600);
+    }
+  }
+
+  shamsu.addEventListener('click',function(){
+    win.classList.add('show');
+    confetti();
+    document.getElementById('again').focus();
+  });
+  document.getElementById('again').addEventListener('click',function(){
+    win.classList.remove('show');
+    anas.style.transform='';
+    hint.textContent='';n=0;
+  });
+})();
+</script>
+</body>
+</html>
