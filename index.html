@@ -1,130 +1,171 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
-<title>شكون زوج نور المستقبلي؟</title>
+<title>Hi Nour</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500;800;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700;800&display=swap">
 <style>
 :root{
-  --bg:#e9f3ff; --bg2:#ffe9f0; --card:#ffffff; --ink:#1d1240; --muted:#6c5f93;
-  --pink:#ff4f7b; --gold:#ffc93c; --violet:#6d4dff; --line:#1d1240;
+  --bg:#fff0e4; --bg2:#e4eeff; --card:#ffffff; --ink:#26143f; --muted:#7b6a99;
+  --pink:#ff5c8a; --gold:#ffd23f; --violet:#6c4dff; --line:#26143f;
   box-sizing:border-box;
   padding-top:env(safe-area-inset-top,0px);
   padding-bottom:env(safe-area-inset-bottom,0px);
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#0e0a22; --bg2:#27103a; --card:#1f1438; --ink:#f6efff; --muted:#b9a9dc; --line:#f6efff;
+    --bg:#140a25; --bg2:#2a0f33; --card:#22143a; --ink:#fbf1ff; --muted:#c0aee0; --line:#fbf1ff;
   }
 }
 :root[data-theme="dark"]{
-  --bg:#0e0a22; --bg2:#27103a; --card:#1f1438; --ink:#f6efff; --muted:#b9a9dc; --line:#f6efff;
+  --bg:#140a25; --bg2:#2a0f33; --card:#22143a; --ink:#fbf1ff; --muted:#c0aee0; --line:#fbf1ff;
 }
 *,*::before,*::after{box-sizing:inherit}
 html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
 body{
-  margin:0;min-height:100%;overflow-x:hidden;
-  font-family:"Tajawal","Segoe UI",Tahoma,system-ui,sans-serif;
+  margin:0;height:100%;overflow:hidden;
+  font-family:"Poppins","Segoe UI",system-ui,sans-serif;
   color:var(--ink);background:var(--bg);
-  background-image:radial-gradient(circle at 10% 8%,var(--bg2),transparent 55%),radial-gradient(circle at 92% 96%,var(--bg2),transparent 50%);
+  background-image:radial-gradient(circle at 12% 8%,var(--bg2),transparent 55%),radial-gradient(circle at 92% 96%,var(--bg2),transparent 50%);
   display:grid;place-items:center;
 }
 .card{
-  width:min(92vw,440px);margin:34px 0;
-  background:var(--card);border:3px solid var(--line);border-radius:28px;
-  box-shadow:8px 8px 0 var(--line);padding:32px 22px 26px;text-align:center;position:relative;
+  width:min(92vw,420px);background:var(--card);
+  border:3px solid var(--line);border-radius:28px;box-shadow:8px 8px 0 var(--line);
+  padding:34px 22px 26px;text-align:center;position:relative;
 }
 .badge{
-  position:absolute;top:-22px;right:50%;transform:translateX(50%) rotate(-4deg);
-  background:var(--gold);color:#1d1240;border:3px solid var(--line);
-  border-radius:999px;padding:4px 18px;font-weight:800;font-size:.95rem;white-space:nowrap;
+  position:absolute;top:-22px;left:50%;transform:translateX(-50%) rotate(-4deg);
+  background:var(--gold);color:#26143f;border:3px solid var(--line);
+  border-radius:999px;padding:4px 18px;font-weight:800;font-size:.9rem;white-space:nowrap;
 }
-h1{margin:12px 0 18px;font-size:clamp(1.6rem,7vw,2.2rem);line-height:1.35;font-weight:900}
-.dots{display:flex;justify-content:center;gap:10px;margin-bottom:24px}
-.dot{width:14px;height:14px;border-radius:50%;border:3px solid var(--line);background:transparent;transition:background .2s}
-.dot.done{background:var(--violet)}
-.dot.now{background:var(--gold)}
-.choices{display:flex;gap:14px;animation:pop .3s ease}
+h1{margin:12px 0 4px;font-size:clamp(1.6rem,7vw,2.1rem);line-height:1.25;font-weight:800}
+.ask{margin:0 0 26px;font-size:clamp(1.15rem,5vw,1.4rem);font-weight:700;color:var(--violet)}
+.stack{display:flex;flex-direction:column;gap:16px}
+.slot{height:64px;display:flex;justify-content:center}
 .btn{
-  flex:1;font:inherit;font-weight:800;font-size:1.35rem;height:68px;cursor:pointer;
+  font:inherit;font-weight:700;font-size:1.02rem;height:64px;cursor:pointer;
   border:3px solid var(--line);border-radius:18px;box-shadow:4px 4px 0 var(--line);
-  color:#1d1240;transition:transform .12s ease,box-shadow .12s ease;
+  color:#26143f;touch-action:none;
+  transition:transform .12s ease,box-shadow .12s ease;
 }
-.btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--line)}
+#yes{width:100%;background:var(--pink);color:#fff}
+#yes:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--line)}
+#no{
+  width:min(100%,250px);background:var(--gold);
+  position:relative;z-index:5;
+  transition:transform .38s cubic-bezier(.2,.9,.25,1.25);
+}
 .btn:focus-visible,.again:focus-visible{outline:4px solid var(--violet);outline-offset:3px}
-.pink{background:var(--pink);color:#fff}
-.gold{background:var(--gold)}
-.res{font-size:clamp(2.4rem,12vw,3.4rem);font-weight:900;line-height:1.25;margin:10px 0 20px;animation:pop .45s cubic-bezier(.2,1.3,.3,1) both}
-.name{
-  font-size:clamp(3rem,16vw,4.4rem);font-weight:900;line-height:1.1;margin:4px 0;
-  color:var(--pink);text-shadow:3px 3px 0 var(--line);animation:pop .45s cubic-bezier(.2,1.3,.3,1) both;
-}
-.joke{font-size:1.4rem;font-weight:800;margin:8px 0 22px;animation:pop .45s .2s ease both}
-.sign{
-  display:inline-block;background:var(--gold);color:#1d1240;
-  border:3px solid #1d1240;border-radius:20px;box-shadow:5px 5px 0 #1d1240;
-  padding:12px 28px;font-size:1.6rem;font-weight:900;transform:rotate(-3deg);
-  animation:drop .55s .5s cubic-bezier(.2,1.2,.3,1) both;
-}
-.again{
-  display:block;margin:26px auto 0;font:inherit;font-weight:800;cursor:pointer;
-  background:var(--card);color:var(--ink);border:3px solid var(--line);border-radius:14px;
-  padding:8px 24px;box-shadow:3px 3px 0 var(--line);
-}
+.hint{min-height:1.6em;margin:20px 0 0;font-weight:800;color:var(--violet)}
+.hint.pop{animation:pop .3s ease}
 @keyframes pop{0%{transform:scale(.8);opacity:0}100%{transform:scale(1);opacity:1}}
-@keyframes drop{0%{transform:translateY(-60px) rotate(8deg);opacity:0}100%{transform:rotate(-3deg);opacity:1}}
+
+#win{position:fixed;inset:0;z-index:20;display:none;place-items:center;background:rgba(20,10,37,.72);padding:24px}
+#win.show{display:grid}
+.sign{
+  width:min(92vw,400px);text-align:center;background:var(--gold);color:#26143f;
+  border:3px solid #26143f;border-radius:28px;box-shadow:8px 8px 0 #26143f;
+  padding:34px 20px 26px;transform:rotate(-2.5deg);
+  animation:drop .55s cubic-bezier(.2,1.2,.3,1) both;
+}
+@keyframes drop{0%{transform:translateY(-120%) rotate(8deg);opacity:0}100%{transform:rotate(-2.5deg);opacity:1}}
+.sign .emo{font-size:2.6rem;margin-bottom:6px}
+.sign .big{font-size:clamp(2rem,10vw,2.8rem);font-weight:800;line-height:1.2;margin:0}
+.again{
+  margin-top:22px;font:inherit;font-weight:700;cursor:pointer;
+  background:#fff;color:#26143f;border:3px solid #26143f;border-radius:14px;
+  padding:8px 22px;box-shadow:3px 3px 0 #26143f;
+}
 .bit{position:fixed;top:-40px;z-index:30;font-size:1.6rem;pointer-events:none;animation:fall linear forwards}
 @keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
 @media (prefers-reduced-motion: reduce){
-  .choices,.res,.name,.joke,.sign{animation:none}
+  #no{transition:none}
+  .sign{animation:none}
   .bit{display:none}
 }
 </style>
 </head>
 <body>
 <main class="card">
-  <div class="badge">اختبار نور ✨</div>
-  <h1 id="q">شكون زوج نور المستقبلي ؟</h1>
-  <div class="dots" id="dots"></div>
-  <div id="stage" aria-live="polite"></div>
+  <div class="badge">A little question 💌</div>
+  <h1>Hi Nour I think I like u</h1>
+  <p class="ask">Wanna go out with me ?</p>
+  <div class="stack">
+    <button class="btn" id="yes" type="button">Yes and I love u too</button>
+    <div class="slot"><button class="btn" id="no" type="button">No ew I don’t like u</button></div>
+  </div>
+  <p class="hint" id="hint" aria-live="polite"></p>
 </main>
+
+<div id="win" role="dialog" aria-modal="true" aria-label="Result">
+  <div class="sign">
+    <div class="emo">💖</div>
+    <p class="big">Smart choice hun</p>
+    <button class="again" id="again" type="button">Replay</button>
+  </div>
+</div>
 
 <script>
 (function(){
-  var steps=[['طويل','قصير'],['سمين','معضل'],['وسيم','بشع'],['غني','فقير']];
-  var i=0,timer=null,locked=false;
-  var q=document.getElementById('q'),dots=document.getElementById('dots'),st=document.getElementById('stage');
+  var no=document.getElementById('no'),slot=no.parentElement,yes=document.getElementById('yes');
+  var hint=document.getElementById('hint'),win=document.getElementById('win');
+  var msgs=['Nope 😏','Too slow!','Nice try 😂','Can’t catch me 🏃','Just say yes 💖','Still trying? 👀','Wrong button hun'];
+  var n=0,lastT=0;
 
-  function drawDots(){
-    dots.innerHTML=steps.map(function(_,k){
-      return '<span class="dot'+(k<i?' done':(k===i?' now':''))+'"></span>';
-    }).join('');
+  function dodge(e){
+    if(e&&e.cancelable)e.preventDefault();
+    var now=Date.now();
+    if(now-lastT<160)return;
+    lastT=now;
+    var vw=window.innerWidth,vh=window.innerHeight;
+    var sb=slot.getBoundingClientRect(),cur=no.getBoundingClientRect(),yb=yes.getBoundingClientRect();
+    var bw=cur.width,bh=cur.height,m=14,best=null,i,x,y,far,hit;
+    var ox=sb.left+(sb.width-bw)/2,oy=sb.top;
+    for(i=0;i<40;i++){
+      x=m+Math.random()*Math.max(1,vw-bw-2*m);
+      y=m+Math.random()*Math.max(1,vh-bh-2*m);
+      far=Math.hypot(x-cur.left,y-cur.top)>150;
+      hit=x<yb.right+16&&x+bw>yb.left-16&&y<yb.bottom+16&&y+bh>yb.top-16;
+      if(far&&!hit){best={x:x,y:y};break}
+      if(!best)best={x:x,y:y};
+    }
+    var rot=Math.round(Math.random()*20-10);
+    no.style.transform='translate('+(best.x-ox)+'px,'+(best.y-oy)+'px) rotate('+rot+'deg)';
+    hint.textContent=msgs[n%msgs.length];n++;
+    hint.classList.remove('pop');void hint.offsetWidth;hint.classList.add('pop');
   }
 
-  function ask(){
-    locked=false;
-    q.style.display='';dots.style.display='';
-    drawDots();
-    var s=steps[i];
-    st.innerHTML='<div class="choices">'+
-      '<button class="btn pink" type="button">'+s[0]+'</button>'+
-      '<button class="btn gold" type="button">'+s[1]+'</button></div>';
-    Array.prototype.forEach.call(st.querySelectorAll('.btn'),function(b){
-      b.addEventListener('click',function(){
-        if(locked)return;
-        locked=true;i++;
-        if(i<steps.length)ask();else result();
-      });
-    });
+  ['pointerenter','pointerdown','click','focus'].forEach(function(t){no.addEventListener(t,dodge)});
+  no.addEventListener('touchstart',dodge,{passive:false});
+
+  function confetti(){
+    var em=['💖','✨','🎉','💜','🌸'],i,s;
+    for(i=0;i<36;i++){
+      s=document.createElement('span');
+      s.className='bit';
+      s.textContent=em[i%em.length];
+      s.style.left=Math.random()*100+'vw';
+      s.style.animationDuration=(2.2+Math.random()*2.2)+'s';
+      s.style.animationDelay=(Math.random()*.8)+'s';
+      document.body.appendChild(s);
+      setTimeout(function(el){el.remove()}.bind(null,s),5600);
+    }
   }
 
-  function result(){
-    drawDots();
-    st.innerHTML='<p class="res">براد بيت؟ 😲</p>';
-    timer=setTimeout(reveal,2600);
-  }
-
-  function reveal
+  yes.addEventListener('click',function(){
+    win.classList.add('show');
+    confetti();
+    document.getElementById('again').focus();
+  });
+  document.getElementById('again').addEventListener('click',function(){
+    win.classList.remove('show');
+    no.style.transform='';hint.textContent='';n=0;
+  });
+})();
+</script>
+</body>
+</html>
